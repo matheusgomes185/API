@@ -1,0 +1,14 @@
+{    
+    "type": "postgres",
+    "host": "dbfappi.cthx40eec7ee.us-east-1.rds.amazonaws.com",
+    "port": 5432,
+    "username": "postgres",
+    "password": "entrar_12345",
+    "database": "dbpifap",
+    "migrations": ["./src/database/migrations/**.ts"],
+    "entities": ["./src/models/**.ts"],
+    "logging": true,
+    "cli": {
+        "migrationsDir": "./src/database/migrations/"
+    }
+}
