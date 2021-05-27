@@ -11,7 +11,7 @@ const userController = new UserController;
 const challengeController = new ChallengeController;
 const authController = new AuthController;
 
-router.post("/", (req:Request, res:Response) => {
+router.get("/", (req:Request, res:Response) => {
     res.send(200).json({ message: "API is running" });
 });
 router.post("/auth", authController.authenticate);
