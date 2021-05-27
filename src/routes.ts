@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { Request, Response } from 'express';
 import { AuthMiddleware } from './middlewares/AuthMiddleware';
 import { AuthController } from './controllers/AuthController';
 import { ChallengeController } from './controllers/ChallengeController';
@@ -10,6 +11,9 @@ const userController = new UserController;
 const challengeController = new ChallengeController;
 const authController = new AuthController;
 
+router.post("/", (req:Request, res:Response) => {
+    res.send(200).json({ message: "API is running" });
+});
 router.post("/auth", authController.authenticate);
 router.post("/users", userController.create);
 router.put("/users", AuthMiddleware, userController.update);
