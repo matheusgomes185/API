@@ -14,7 +14,7 @@ class ChallengeController {
 
         await challengeRepository.save(challenge);
 
-        return response.status(201).json(challenge);
+        return response.sendStatus(201).json(challenge);
     }
 
     async show(request: Request, response: Response) {
@@ -22,7 +22,7 @@ class ChallengeController {
 
         const all = await challengeRepository.find();
 
-        return response.status(200).json(all);
+        return response.sendStatus(200).json(all);
     }
 }
 
