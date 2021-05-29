@@ -14,7 +14,7 @@ class UserController {
         });
 
         if(userAlreadyExists) {
-            return response.sendStatus(409).json({
+            return response.json({
                 error: "User already exists",
             });
         }
@@ -25,7 +25,7 @@ class UserController {
 
         await userRepository.save(user);
 
-        return response.sendStatus(201).json(user);
+        return response.json(user);
     }
     
     async update(request: Request, response: Response) {
@@ -38,7 +38,7 @@ class UserController {
             userData
         );
 
-        return response.sendStatus(201).json(userData);
+        return response.json(userData);
     }
 
     async show(request: Request, response: Response) {
@@ -46,7 +46,7 @@ class UserController {
 
         const all = await userRepository.find();
 
-        return response.sendStatus(200).json(all);
+        return response.json(all);
     }
 
     async profile(request: Request, response: Response) {
@@ -59,12 +59,12 @@ class UserController {
          });
 
         if(!userAlreadyExists) {
-            return response.sendStatus(400).json({
+            return response.json({
                 error: "User not exists",
             });
         }
 
-        return response.sendStatus(200).json(userAlreadyExists);
+        return response.json(userAlreadyExists);
     }
 }
 

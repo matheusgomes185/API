@@ -16,7 +16,7 @@ class AuthController {
         });
 
         if(!user) {
-            return response.sendStatus(401).json({
+            return response.json({
                 error: "E-mail or password invalid!"
             });
         }
@@ -24,7 +24,7 @@ class AuthController {
         const isValidPassword = await bcrypt.compare(password, user.password);
 
         if(!isValidPassword) {
-            return response.sendStatus(401).json({
+            return response.json({
                 error: "E-mail or password invalid!"
             });
         }
@@ -37,7 +37,7 @@ class AuthController {
 
         delete user.password;
 
-        return response.sendStatus(200).json({
+        return response.json({
             user, token
         });
     }
